@@ -1,247 +1,738 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2xK — Social Media dla Klubów Piłkarskich</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2xKPro — Social media dla klubów piłkarskich i boxów Hyrox</title>
+<meta name="description" content="Agencja social media dla klubów piłkarskich, akademii i boxów Hyrox / CrossFit. Konkretnie: posty, reels, moderacja, kampanie naborowe." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          ink:    '#0E1B2C',  // głęboki granat
+          paper:  '#F6F2EA',  // ciepła biel
+          bone:   '#EDE6D8',  // ciepła biel ciemniejsza (linie, karty)
+          flame:  '#E8633A',  // akcent pomarańczowy
+          coal:   '#0A0A0A',  // czerń tekstowa
+          mute:   '#5B6573',  // szary opisowy
+        },
+        fontFamily: {
+          sans: ['Manrope', 'system-ui', 'sans-serif'],
+          mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        },
+        letterSpacing: {
+          tightest: '-0.04em',
+        },
+      }
+    }
+  }
+</script>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Georgia,'Times New Roman',serif;background:#FAF8F5;color:#2C2416;font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased}
-.sans{font-family:Arial,sans-serif}
-.container{max-width:740px;margin:0 auto;padding:0 44px}
+  html { scroll-behavior: smooth; }
+  body { font-feature-settings: "ss01", "cv11"; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
 
-nav{background:#FAF8F5;padding:20px 0;border-bottom:1px solid #E8E0D5}
-nav .container{display:flex;justify-content:space-between;align-items:center}
-.logo{font-size:22px;font-weight:bold;color:#1B2A4A}
-.logo span{color:#2A5298}
-.nav-btn{font-family:Arial,sans-serif;color:#fff;background:#1B2A4A;text-decoration:none;font-weight:bold;font-size:13px;padding:10px 24px;border-radius:100px;transition:all .2s}
-.nav-btn:hover{background:#243a5e}
+  /* placeholder pattern */
+  .ph {
+    background-color: #E9E1D0;
+    background-image:
+      repeating-linear-gradient(135deg,
+        rgba(14,27,44,0.06) 0 1px,
+        transparent 1px 14px);
+    position: relative;
+    overflow: hidden;
+  }
+  .ph .ph-label {
+    position: absolute;
+    inset: auto auto 14px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: #0E1B2C;
+    background: #F6F2EA;
+    padding: 4px 8px;
+    border: 1px solid #0E1B2C;
+    text-transform: uppercase;
+  }
+  .ph-dark {
+    background-color: #122236;
+    background-image:
+      repeating-linear-gradient(135deg,
+        rgba(246,242,234,0.06) 0 1px,
+        transparent 1px 14px);
+  }
+  .ph-dark .ph-label {
+    color: #F6F2EA;
+    background: #0E1B2C;
+    border-color: #F6F2EA;
+  }
 
-.hero{background:#1B2A4A;color:#fff;padding:56px 52px 60px}
-.hero-inner{display:flex;align-items:center;gap:40px;max-width:740px;margin:0 auto}
-.hero-photo{width:130px;height:130px;border-radius:65px;border:4px solid rgba(255,255,255,0.4);object-fit:cover;object-position:center top;flex-shrink:0}
-.eyebrow{font-family:Arial,sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;opacity:.9;margin-bottom:8px}
-.hero h1{font-size:34px;font-weight:bold;line-height:1.15;margin-bottom:10px;color:#fff}
-.hero h1 em{color:#B8CCE8;font-style:italic}
-.hero-sub{font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:16px;max-width:400px}
-.hero-name{font-family:Arial,sans-serif;font-size:12px;letter-spacing:1px;opacity:.9}
-.hero-cta-wrap{text-align:center;margin-top:32px}
-.hero-cta{display:inline-block;background:#fff;color:#1B2A4A;font-family:Arial,sans-serif;font-weight:bold;font-size:14px;padding:14px 36px;border-radius:100px;text-decoration:none;transition:all .2s}
-.hero-cta:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(0,0,0,0.15)}
+  /* number tag */
+  .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
 
-.section{padding:44px 0;border-bottom:1px solid #E8E0D5}
-.section:last-child{border-bottom:none}
-.label{font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#2A5298;margin-bottom:12px}
-.section-title{font-size:28px;font-weight:bold;color:#2C2416;margin-bottom:16px;line-height:1.2}
-p{margin-bottom:12px;color:#7A6E62;font-family:Arial,sans-serif;font-size:13.5px}
-p strong{color:#2C2416;font-weight:600}
+  /* FAQ */
+  details > summary { list-style: none; cursor: pointer; }
+  details > summary::-webkit-details-marker { display: none; }
+  details[open] .faq-plus::before { transform: rotate(90deg); opacity: 0; }
+  details[open] .faq-plus::after { transform: rotate(180deg); }
+  .faq-plus { position: relative; width: 20px; height: 20px; display: inline-block; flex-shrink: 0; }
+  .faq-plus::before, .faq-plus::after {
+    content: ''; position: absolute; background: currentColor;
+    transition: transform .35s cubic-bezier(.4,0,.2,1), opacity .25s;
+  }
+  .faq-plus::before { top: 9px; left: 0; right: 0; height: 2px; }
+  .faq-plus::after  { left: 9px; top: 0; bottom: 0; width: 2px; }
 
-.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.stat-cell{background:#F0EBE3;border:1px solid #E0D8CC;border-radius:10px;padding:24px 16px;text-align:center}
-.stat-number{font-size:34px;font-weight:bold;color:#1B2A4A;line-height:1;margin-bottom:6px;display:block}
-.stat-label{font-family:Arial,sans-serif;font-size:11.5px;color:#7A6E62;line-height:1.4;display:block;margin-bottom:6px}
-.stat-note{font-family:Arial,sans-serif;font-size:10.5px;color:#2A5298;font-weight:bold;background:rgba(42,82,152,0.1);padding:2px 10px;border-radius:20px;display:inline-block}
+  details .faq-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.4,0,.2,1); }
+  details[open] .faq-body { grid-template-rows: 1fr; }
+  details .faq-body > div { overflow: hidden; }
 
-.story-box{background:#1B2A4A;border-radius:10px;padding:28px 32px;margin-top:20px}
-.story-box p{color:rgba(255,255,255,0.92)!important;margin:0;font-size:14px!important;line-height:1.7!important}
-.story-box strong{color:#fff!important}
+  /* CTA button */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 14px;
+    background: #E8633A; color: #0A0A0A;
+    padding: 18px 26px;
+    font-weight: 700;
+    border: 1px solid #0E1B2C;
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    box-shadow: 4px 4px 0 #0E1B2C;
+  }
+  .btn-primary:hover { transform: translate(-2px,-2px); box-shadow: 6px 6px 0 #0E1B2C; background: #F08259; }
+  .btn-primary:active { transform: translate(0,0); box-shadow: 2px 2px 0 #0E1B2C; }
+  .btn-primary svg { transition: transform .2s ease; }
+  .btn-primary:hover svg { transform: translateX(4px); }
 
-.vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.vs-card{border-radius:10px;padding:24px;border:1px solid #E0D8CC}
-.vs-bad{background:#FFF8F7;border-color:#E8D0CC}
-.vs-good{background:#F5F8FE;border-color:#C8D4E8}
-.vs-card h4{font-family:Arial,sans-serif;font-size:13px;font-weight:bold;margin-bottom:10px}
-.vs-bad h4{color:#9B4D3A}
-.vs-good h4{color:#2A5298}
-.vs-card p{font-size:12.5px;margin:0;line-height:1.55}
-.vs-card .result{margin-top:14px;padding-top:10px;border-top:1px solid #E0D8CC;font-family:Arial,sans-serif;font-size:12px;font-weight:bold}
-.vs-bad .result{color:#9B4D3A}
-.vs-good .result{color:#2A5298}
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: #0E1B2C; font-weight: 600;
+    border-bottom: 1px solid #0E1B2C;
+    padding: 4px 0;
+    transition: gap .2s ease;
+  }
+  .btn-ghost:hover { gap: 14px; }
 
-.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.scope-cell{background:#F0EBE3;border-left:3px solid #2A5298;border-radius:0 8px 8px 0;padding:16px 18px}
-.scope-cell h4{font-family:Arial,sans-serif;font-size:12.5px;font-weight:bold;color:#1B2A4A;margin-bottom:5px}
-.scope-cell p{font-size:12.5px;margin:0}
-  .scope-note{font-family:Arial,sans-serif;font-size:12.5px;color:#7A6E62;font-style:italic;margin-top:16px;text-align:center}
+  /* hairline */
+  .hair { border-color: rgba(14,27,44,0.18); }
+  .hair-dark { border-color: rgba(246,242,234,0.18); }
 
-.leadads-box{background:linear-gradient(135deg,#1B2A4A 0%,#2A5298 100%);border-radius:12px;padding:32px;margin-top:20px;color:#fff}
-.leadads-box .leadads-eyebrow{font-family:Arial,sans-serif;font-size:10px;font-weight:bold;letter-spacing:3px;text-transform:uppercase;color:#B8CCE8;margin-bottom:10px}
-.leadads-box h3{font-family:Georgia,serif;font-size:22px;font-weight:bold;color:#fff;margin-bottom:14px;line-height:1.25}
-.leadads-box p{color:rgba(255,255,255,0.88);font-family:Arial,sans-serif;font-size:13.5px;line-height:1.7;margin-bottom:10px}
-.leadads-box p:last-child{margin-bottom:0}
-.leadads-box strong{color:#fff;font-weight:600}
+  /* fade-in */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+  }
 
-.roi-box{background:#F0EBE3;border:1px solid #E0D8CC;border-radius:10px;padding:28px;margin-top:20px}
-.roi-line{display:flex;justify-content:space-between;padding:8px 0;font-family:Arial,sans-serif;font-size:13px;color:#7A6E62;border-bottom:1px solid #E0D8CC}
-.roi-line:last-child{border-bottom:none}
-.roi-line .val{color:#2C2416;font-weight:bold}
-.roi-result{margin-top:16px;padding-top:16px;border-top:2px solid #2A5298;display:flex;justify-content:space-between;font-family:Arial,sans-serif;font-weight:bold;font-size:15px;color:#1B2A4A}
-.roi-result .val{font-size:22px;color:#2A5298}
-.roi-note{margin-top:12px;font-family:Arial,sans-serif;font-size:12px;color:#7A6E62;font-style:italic}
+  /* nav blur */
+  .nav-glass { background: rgba(246,242,234,0.85); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); }
 
-.step{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid #E8E0D5}
-.step-num{font-size:36px;font-weight:bold;color:rgba(42,82,152,0.15);line-height:1;flex-shrink:0;width:44px}
-.step h4{font-family:Arial,sans-serif;font-size:13.5px;font-weight:bold;color:#1B2A4A;margin-bottom:3px}
-.step p{font-size:13px;margin:0}
+  /* big display headline tightness */
+  .display { letter-spacing: -0.035em; line-height: 0.95; }
+  @media (min-width: 768px) { .display { line-height: 0.92; } }
 
-.why-text{font-family:Arial,sans-serif;font-size:13.5px;line-height:1.7;color:#7A6E62}
-.why-text strong{color:#2A5298;font-weight:bold}
+  /* tabular nums in stats */
+  .nums { font-variant-numeric: tabular-nums; }
 
-.contact-box{background:rgba(42,82,152,0.06);border-left:3px solid #2A5298;border-radius:0 6px 6px 0;padding:12px 18px;margin:22px 0;font-family:Arial,sans-serif;font-size:13px;color:#7A6E62}
-.contact-box a{color:#2A5298;text-decoration:none;font-weight:bold}
+  /* underline link */
+  .ulink { background-image: linear-gradient(currentColor,currentColor); background-size: 100% 1px; background-repeat: no-repeat; background-position: 0 100%; }
 
-.cta-final{background:#1B2A4A;padding:56px 44px;text-align:center}
-.cta-final h2{font-size:30px;color:#fff;margin-bottom:14px;line-height:1.2}
-.cta-final p{font-family:Arial,sans-serif;font-size:14px;color:rgba(255,255,255,0.7);margin-bottom:32px;line-height:1.6}
-.cta-contact{margin-top:20px;font-family:Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.5)}
-.cta-contact a{color:rgba(255,255,255,0.8);text-decoration:none}
-.cta-contact a:hover{color:#fff}
-
-footer{padding:24px 0;text-align:center;font-family:Arial,sans-serif;color:#7A6E62;font-size:12px}
-footer a{color:#7A6E62;text-decoration:none}
-
-@media(max-width:640px){
-  .hero{padding:40px 24px 44px}
-  .hero-inner{flex-direction:column;text-align:center;gap:20px}
-  .container{padding:0 24px}
-  .stats-grid,.vs-grid,.scope-grid{grid-template-columns:1fr}
-  .step{flex-direction:column;gap:4px}
-  .step-num{font-size:28px;width:auto}
-  .cta-final{padding:40px 24px}
-  .leadads-box{padding:24px}
-  .leadads-box h3{font-size:19px}
-}
+  /* marquee */
+  @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee-track { animation: scroll-x 40s linear infinite; }
 </style>
 </head>
-<body>
 
-<nav><div class="container">
-  <div class="logo">2x<span>K</span></div>
-  <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min?user=kamil-kwiecinski-ketbpy&overlayCalendar=true" class="nav-btn">Umów rozmowę</a>
-</div></nav>
+<body class="bg-paper text-coal font-sans antialiased">
 
-<div class="hero">
-  <div class="hero-inner">
-    <img class="hero-photo" src="data:image/jpeg;base64,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/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AN1fht//AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD+26zIEPEl/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A2kKPiLX1e/v/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8ASczgREbkkd+//wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/da7GF/jtX3z/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wDyzEzEvFNaiklP/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A4sJsuZodJ+vGv/8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AFUX3tR4Nj6A+v8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP3bb9EkESdY5lt//wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP5r7EWsyswDyo+//wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AOnTQpxytryJEHz/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wAHIUxJV0pFQ0V7/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP63+Ld9nNp1Tx9v/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/APtQ+1pwnPE0js//AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AOzBGuVshdLNP/8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A/wD/AP8A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" alt="Kamil Kwieciński">
-    <div>
-      <div class="eyebrow">Oferta współpracy</div>
-      <h1>Social Media<br>dla <em>Klubów Piłkarskich</em></h1>
-      <p class="hero-sub" style="font-family:Arial,sans-serif;color:rgba(255,255,255,0.8)">Pomagam budować markę, która przyciąga zawodników, rodziców i sponsorów — bez dnia straconego na grafiki.</p>
-      <div class="hero-name">Kamil Kwieciński · Social Media Manager</div>
+<!-- ============== NAV ============== -->
+<header class="nav-glass fixed top-0 inset-x-0 z-50 border-b hair">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 h-16 md:h-20 flex items-center justify-between">
+    <a href="#top" class="flex items-baseline gap-2">
+      <span class="text-2xl md:text-[28px] font-extrabold tracking-tightest text-ink">2xK<span class="text-flame">Pro</span></span>
+      <span class="hidden xl:inline-block sec-num text-mute whitespace-nowrap">Social media · sport</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-ink">
+      <a href="#dla-kogo" class="whitespace-nowrap hover:text-flame transition">Dla kogo</a>
+      <a href="#case-studies" class="whitespace-nowrap hover:text-flame transition">Case studies</a>
+      <a href="#jak-dzialamy" class="whitespace-nowrap hover:text-flame transition">Jak działamy</a>
+      <a href="#o-mnie" class="whitespace-nowrap hover:text-flame transition">O mnie</a>
+      <a href="#faq" class="whitespace-nowrap hover:text-flame transition">FAQ</a>
+    </nav>
+    <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min" target="_blank" rel="noopener" class="hidden md:inline-flex items-center gap-2 bg-ink text-paper px-4 py-2.5 text-sm font-semibold whitespace-nowrap hover:bg-flame hover:text-coal transition">
+      Konsultacja 15 min
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.6"/></svg>
+    </a>
+    <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min" target="_blank" rel="noopener" class="md:hidden text-sm font-semibold text-ink underline underline-offset-4 decoration-flame decoration-2">
+      Konsultacja →
+    </a>
+  </div>
+</header>
+
+<main id="top" class="pt-16 md:pt-20">
+
+<!-- ============== HERO ============== -->
+<section class="relative overflow-hidden">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 pt-10 md:pt-20 pb-16 md:pb-24">
+
+    <!-- meta line -->
+    <div class="flex items-center justify-between mb-10 md:mb-16">
+      <div class="flex items-center gap-3">
+        <span class="w-2 h-2 bg-flame rounded-full animate-pulse"></span>
+        <span class="sec-num text-mute">Przyjmujemy nowych klientów</span>
+      </div>
+      <div class="sec-num text-mute hidden sm:block">2xkpro.com · est. 2026</div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6 md:gap-10 items-center">
+      <!-- Headline -->
+      <div class="col-span-12 md:col-span-7">
+        <div class="sec-num text-flame mb-6">/ 01 — Social media dla sportu</div>
+        <h1 class="display text-[44px] sm:text-[64px] md:text-[72px] lg:text-[88px] xl:text-[96px] font-extrabold text-ink">
+          Social media<br>
+          dla klubów<br>
+          piłkarskich<br>
+          i boxów <span class="italic font-medium text-flame">Hyrox</span>.
+        </h1>
+        <p class="mt-8 md:mt-10 text-xl md:text-2xl text-ink/80 max-w-[640px] leading-snug">
+          Zrobione tak, żeby przyciągało <span class="text-ink font-semibold">zawodników</span>, nie tylko like'i.
+        </p>
+      </div>
+
+      <!-- Side image -->
+      <div class="col-span-12 md:col-span-5 mt-2 md:mt-0">
+        <img src="images/kamil-mistrz-polski-commercecon-2023.png"
+             alt="Kamil Kwieciński z pucharem Mistrza Polski siatkówki kobiet 2022/23"
+             class="w-full aspect-[4/5] object-cover object-top md:ml-auto max-w-[520px]"
+             loading="eager">
+      </div>
+    </div>
+
+    <!-- CTA row -->
+    <div class="mt-14 md:mt-20 grid grid-cols-12 gap-6 md:gap-10 items-start">
+      <div class="col-span-12 md:col-span-7 lg:col-span-6">
+        <p class="text-lg md:text-xl text-ink leading-relaxed max-w-[560px]">
+          Prowadzimy social media dwóch konkretnych nisz — <strong>akademii piłkarskich</strong> i <strong>boxów funkcjonalnych</strong>. Posty, reels, moderacja, kampanie naborowe.
+        </p>
+      </div>
+      <div class="col-span-12 md:col-span-5 lg:col-span-6 flex flex-col sm:flex-row sm:items-center gap-5 md:justify-end">
+        <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min" target="_blank" rel="noopener" class="btn-primary">
+          Umów bezpłatną konsultację (15 min)
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.5 14.5L14.5 3.5M14.5 3.5H6.5M14.5 3.5V11.5" stroke="currentColor" stroke-width="2"/></svg>
+        </a>
+      </div>
     </div>
   </div>
-  <div class="hero-cta-wrap"><a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min?user=kamil-kwiecinski-ketbpy&overlayCalendar=true" class="hero-cta">Porozmawiajmy — 15 min, bez zobowiązań</a></div>
-</div>
 
-<div class="container">
-
-<div class="section">
-  <div class="label">Wyniki mojej pracy — Case Study</div>
-  <h2 class="section-title">Liczby, nie obietnice.</h2>
-  <p>Prowadzę social media dla akademii sportowej <strong>Lubań Volley</strong>. Wyniki organiczne — ten sam mechanizm treści wideo działa dokładnie tak samo w piłce nożnej:</p>
-  <div class="stats-grid">
-    <div class="stat-cell"><span class="stat-number">32,1k</span><span class="stat-label">Wyświetleń w ostatnich 30 dniach</span><span class="stat-note">Bez reklam</span></div>
-    <div class="stat-cell"><span class="stat-number">60%</span><span class="stat-label">Zasięg spoza obserwujących</span><span class="stat-note">Nowe osoby</span></div>
-    <div class="stat-cell"><span class="stat-number">+43%</span><span class="stat-label">Wzrost wyświetleń vs miesiąc wcześniej</span><span class="stat-note">Trend rosnący</span></div>
-  </div>
-  <div class="story-box">
-    <p>Jedna rolka przekroczyła <strong>83 000 wyświetleń organicznie</strong> — więcej niż cały poprzedni miesiąc. Dla klubu piłkarskiego to realne dotarcie do rodziców, kibiców i potencjalnych sponsorów — <strong>bez złotówki na reklamy.</strong></p>
-  </div>
-</div>
-
-<div class="section">
-  <div class="label">Dlaczego większość akademii nie rośnie?</div>
-  <h2 class="section-title">Sprawdziłem 50+ profili akademii piłkarskich.</h2>
-  <p>90% robi dokładnie to samo — i właśnie dlatego stoi w miejscu.</p>
-  <div class="vs-grid">
-    <div class="vs-card vs-bad">
-      <h4>❌ Co robi konkurencja</h4>
-      <p>Zdjęcia z meczów po fakcie. "Gratulacje drużynie!" — zawsze tak samo. Posty tylko po eventach. Zero strategii treści wideo.</p>
-      <div class="result">Rezultat: 100–300 wyświetleń. Tylko obecni rodzice.</div>
-    </div>
-    <div class="vs-card vs-good">
-      <h4>✓ Co ja robię inaczej</h4>
-      <p>Strategiczny mix: 40% behind-the-scenes, 30% sukcesy, 20% wskazówki dla rodziców, 10% community. Format wideo — algorytm go uwielbia.</p>
-      <div class="result">Rezultat: 32 000 wyświetleń/msc. Jedna rolka — 83 000.</div>
+  <!-- marquee strip -->
+  <div class="border-y hair bg-paper overflow-hidden">
+    <div class="flex marquee-track whitespace-nowrap py-4 text-ink/70">
+      <div class="flex items-center gap-10 px-5 sec-num">
+        <span>● Akademie piłkarskie</span><span>○ Hyrox</span><span>● CrossFit</span><span>○ Juniorzy &amp; nabory</span><span>● Posty + reels</span><span>○ Moderacja FB / IG</span><span>● Lead Ads</span><span>○ Brand klubu</span>
+        <span>● Akademie piłkarskie</span><span>○ Hyrox</span><span>● CrossFit</span><span>○ Juniorzy &amp; nabory</span><span>● Posty + reels</span><span>○ Moderacja FB / IG</span><span>● Lead Ads</span><span>○ Brand klubu</span>
+      </div>
+      <div class="flex items-center gap-10 px-5 sec-num" aria-hidden="true">
+        <span>● Akademie piłkarskie</span><span>○ Hyrox</span><span>● CrossFit</span><span>○ Juniorzy &amp; nabory</span><span>● Posty + reels</span><span>○ Moderacja FB / IG</span><span>● Lead Ads</span><span>○ Brand klubu</span>
+        <span>● Akademie piłkarskie</span><span>○ Hyrox</span><span>● CrossFit</span><span>○ Juniorzy &amp; nabory</span><span>● Posty + reels</span><span>○ Moderacja FB / IG</span><span>● Lead Ads</span><span>○ Brand klubu</span>
+      </div>
     </div>
   </div>
-  <p style="margin-top:20px"><strong>Twoja akademia może być tą, o której mówią w regionie.</strong> Nie dlatego, że wyda więcej — ale dlatego, że zrobi to inaczej niż wszyscy.</p>
-</div>
+</section>
 
-<div class="section">
-  <div class="label">Zakres działań</div>
-  <h2 class="section-title">Co konkretnie biorę na siebie.</h2>
-  <p>Skupiamy się tam, gdzie są Twoi odbiorcy — rodzice i kibice scrollują Facebook i Instagram, nie Twittera.</p>
-  <div class="scope-grid">
-    <div class="scope-cell"><h4>📱 Platformy wizualne</h4><p>Facebook + Instagram — spójny profil, który od pierwszego wejrzenia mówi: "to poważny klub".</p></div>
-    <div class="scope-cell"><h4>🎬 Rolki i wideo</h4><p>Skróty meczów, fragmenty treningów, progres zawodnika. Ty nagrywasz telefonem — ja montuję.</p></div>
-    <div class="scope-cell"><h4>✍️ Copywriting</h4><p>Zamiast suchego ogłoszenia — posty, które budują więź z kibicem i rodzicem. Językiem pasji.</p></div>
-    <div class="scope-cell"><h4>💬 Moderacja</h4><p>Odpowiadanie na komentarze i pytania w imieniu klubu. Szybka reakcja buduje zaufanie.</p></div>
-   <div class="scope-cell"><h4>📊 Raporty miesięczne</h4><p>Konkretne liczby, co działa, co zmienić. Pełna przejrzystość.</p></div>
-    <div class="scope-cell"><h4>🏆 Analiza konkurencji</h4><p>Sprawdzam, co publikują inne akademie w regionie i gdzie jest Twoja szansa.</p></div>
+<!-- ============== DLA KOGO ============== -->
+<section id="dla-kogo" class="border-b hair">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-20 md:py-32">
+
+    <div class="grid grid-cols-12 gap-6 md:gap-10 mb-14 md:mb-20">
+      <div class="col-span-12 md:col-span-5">
+        <div class="sec-num text-flame mb-4">/ 02 — Dla kogo pracujemy</div>
+        <h2 class="display text-4xl md:text-6xl font-extrabold text-ink">Dwie nisze.<br>Nic więcej.</h2>
+      </div>
+      <div class="col-span-12 md:col-span-6 md:col-start-7 flex items-end">
+        <p class="text-lg md:text-xl text-ink/75 leading-relaxed">
+          Nie robimy „wszystkiego sportowego". Robimy social media dwóch typów klubów — bo znamy ich rytm, ich content i ich rodzica/zawodnika po drugiej stronie ekranu.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+
+      <!-- Card 1 — football -->
+      <article class="reveal bg-paper border border-ink p-8 md:p-12 group hover:bg-ink hover:text-paper transition-colors duration-300">
+        <div class="flex items-start justify-between mb-10 md:mb-14">
+          <div class="sec-num opacity-70">A — Piłka nożna</div>
+          <!-- football icon: pentagon hex pattern -->
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" class="text-ink group-hover:text-flame transition-colors">
+            <circle cx="32" cy="32" r="29" stroke="currentColor" stroke-width="2"/>
+            <path d="M32 14L40 20L37 30H27L24 20L32 14Z" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M32 14V6M40 20L48 16M37 30L46 36M27 30L18 36M24 20L16 16" stroke="currentColor" stroke-width="2"/>
+            <path d="M37 30L41 42L32 49L23 42L27 30" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M41 42L50 44M23 42L14 44M32 49V58" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="text-3xl md:text-4xl font-extrabold tracking-tightest mb-8">Kluby piłkarskie<br>i akademie</h3>
+
+        <ul class="space-y-5 text-base md:text-lg">
+          <li class="flex gap-4 border-t hair group-hover:hair-dark pt-5">
+            <span class="sec-num opacity-60 pt-1">01</span>
+            <div>
+              <div class="font-semibold mb-1">Content treningowy i meczowy</div>
+              <div class="opacity-70">Reels z treningu, kadry meczowe, transmisje wyników — w rytmie tygodnia klubu.</div>
+            </div>
+          </li>
+          <li class="flex gap-4 border-t hair group-hover:hair-dark pt-5">
+            <span class="sec-num opacity-60 pt-1">02</span>
+            <div>
+              <div class="font-semibold mb-1">Kampanie naborowe</div>
+              <div class="opacity-70">Facebook Lead Ads na nabory do roczników. Realny pipeline rodziców, nie zasięgi w próżni.</div>
+            </div>
+          </li>
+          <li class="flex gap-4 border-t hair group-hover:hair-dark pt-5">
+            <span class="sec-num opacity-60 pt-1">03</span>
+            <div>
+              <div class="font-semibold mb-1">Brand klubu wokół trenerów i zawodników</div>
+              <div class="opacity-70">Profile nie wyglądają jak gazetka — wyglądają jak miejsce, do którego się chce trafić.</div>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Card 2 — Hyrox/CF -->
+      <article class="reveal bg-ink text-paper border border-ink p-8 md:p-12 group hover:bg-flame hover:text-ink transition-colors duration-300">
+        <div class="flex items-start justify-between mb-10 md:mb-14">
+          <div class="sec-num opacity-70">B — Trening funkcjonalny</div>
+          <!-- kettlebell / functional icon -->
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" class="text-flame group-hover:text-ink transition-colors">
+            <path d="M22 12H42L40 18C46 21 50 27 50 35C50 44 43 52 32 52C21 52 14 44 14 35C14 27 18 21 24 18L22 12Z" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M26 12C26 9 28 8 32 8C36 8 38 9 38 12" stroke="currentColor" stroke-width="2.5"/>
+            <circle cx="32" cy="36" r="6" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+        <h3 class="text-3xl md:text-4xl font-extrabold tracking-tightest mb-8">Boxy Hyrox<br>i CrossFit</h3>
+
+        <ul class="space-y-5 text-base md:text-lg">
+          <li class="flex gap-4 border-t hair-dark group-hover:hair pt-5">
+            <span class="sec-num opacity-60 pt-1">01</span>
+            <div>
+              <div class="font-semibold mb-1">Content z WOD-ów i zawodów</div>
+              <div class="opacity-80">Reels z hali, przygotowania do Hyrox, kadry członków boxu — tak, jak fani sportu lubią oglądać.</div>
+            </div>
+          </li>
+          <li class="flex gap-4 border-t hair-dark group-hover:hair pt-5">
+            <span class="sec-num opacity-60 pt-1">02</span>
+            <div>
+              <div class="font-semibold mb-1">Pozyskiwanie nowych członków</div>
+              <div class="opacity-80">Kampanie z lokalnym targetowaniem na free trial / drop-in / OnRamp. Mierzymy koszt leada, nie wrażenia.</div>
+            </div>
+          </li>
+          <li class="flex gap-4 border-t hair-dark group-hover:hair pt-5">
+            <span class="sec-num opacity-60 pt-1">03</span>
+            <div>
+              <div class="font-semibold mb-1">Społeczność, nie sprzedaż</div>
+              <div class="opacity-80">Box żyje członkami. Budujemy profil, który ich pokazuje i sprawia, że nowi chcą dołączyć.</div>
+            </div>
+          </li>
+        </ul>
+      </article>
+
+    </div>
+
+    <!-- nie pracujemy z -->
+    <div class="mt-14 md:mt-20 grid grid-cols-12 gap-6 md:gap-10 border-t hair pt-10">
+      <div class="col-span-12 md:col-span-4">
+        <div class="sec-num text-mute mb-3">Nie pracujemy z</div>
+        <p class="text-ink/80">Tenis, koszykówka, sporty walki, kluby seniorów. Polecimy kogoś sensownego, jeśli zapytasz.</p>
+      </div>
+      <div class="col-span-12 md:col-span-8 flex flex-wrap gap-2 md:justify-end items-start">
+        <span class="line-through text-mute border hair px-3 py-1.5 text-sm">tenis</span>
+        <span class="line-through text-mute border hair px-3 py-1.5 text-sm">koszykówka</span>
+        <span class="line-through text-mute border hair px-3 py-1.5 text-sm">sporty walki</span>
+        <span class="line-through text-mute border hair px-3 py-1.5 text-sm">kluby seniorów</span>
+        <span class="line-through text-mute border hair px-3 py-1.5 text-sm">wszystkie inne</span>
+      </div>
+    </div>
   </div>
-  <p class="scope-note">Kampanie reklamowe (Lead Ads) to osobna usługa naborowa — opisana niżej.</p>
-</div>
+</section>
 
-<div class="section">
-  <div class="label">Zwrot z inwestycji — przykład</div>
-  <h2 class="section-title">Inwestycja, nie wydatek.</h2>
-  <div class="roi-box">
-    <div class="roi-line"><span>Zasięg miesięczny</span><span class="val">32 000 wyświetleń</span></div>
-    <div class="roi-line"><span>Konwersja na zapytanie (0,5%)</span><span class="val">160 zapytań</span></div>
-    <div class="roi-line"><span>Zapisy (10% z zapytań)</span><span class="val">16 nowych zawodników</span></div>
-    <div class="roi-line"><span>Przychód (16 × 250 zł składka)</span><span class="val">4 000 zł / mies.</span></div>
- <div class="roi-result"><span>Zwrot z inwestycji</span><span class="val">w 1–2 mies.</span></div>
-    <div class="roi-note">Każdy zawodnik zostaje średnio 2–3 lata = 6 000–9 000 zł lifetime value.</div>
+<!-- ============== CASE STUDIES ============== -->
+<section id="case-studies" class="bg-ink text-paper border-b hair">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-20 md:py-32">
+
+    <div class="grid grid-cols-12 gap-6 md:gap-10 mb-14 md:mb-20">
+      <div class="col-span-12 md:col-span-7">
+        <div class="sec-num text-flame mb-4">/ 03 — Dowody, nie obietnice</div>
+        <h2 class="display text-4xl md:text-6xl font-extrabold">Co konkretnie<br>zrobiliśmy.</h2>
+      </div>
+      <div class="col-span-12 md:col-span-4 md:col-start-9 flex items-end">
+        <p class="text-lg md:text-xl text-paper/75 leading-relaxed">
+          Dwa realne wdrożenia. Bez ozdobników, bez „pracowaliśmy z 200+ klubami". Tylko to, co mamy — z liczbami z paneli FB / IG.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+
+      <!-- Case 1: Lubań Volley -->
+      <article class="reveal flex flex-col border border-paper/30 hover:border-flame transition-colors">
+        <div class="p-8 md:p-10 flex-1 flex flex-col">
+          <div class="flex items-center justify-between mb-6 sec-num text-paper/60">
+            <span>01 / Własny klub</span>
+            <span>Siatkówka · Lubań</span>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tightest">Lubań Volley</h3>
+          <p class="text-paper/80 mb-8 leading-relaxed">
+            Mój klub. Prowadzę profil osobiście. Dowód, że to nie teoria — sami robimy to, co sprzedajemy. Z czasem dorobiliśmy się ekosystemu rolek o stabilnie wysokim zasięgu.
+          </p>
+
+          <!-- Hero number -->
+          <div class="border-t hair-dark pt-6 mb-6 flex items-baseline gap-4">
+            <span class="text-6xl md:text-7xl font-extrabold nums text-flame leading-none">91k</span>
+            <span class="text-paper/70 text-sm leading-tight">wyświetleń<br>jednego reela</span>
+          </div>
+
+          <!-- Secondary stats grid -->
+          <div class="mt-auto grid grid-cols-3 gap-3 border-t hair-dark pt-6">
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold nums text-paper leading-none">32,1k</div>
+              <div class="text-paper/60 text-xs mt-2 leading-tight">wyświetleń<br>w 30 dni (IG)</div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold nums text-paper leading-none">+43<span class="text-flame">%</span></div>
+              <div class="text-paper/60 text-xs mt-2 leading-tight">wzrost wyświetleń<br>m/m</div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold nums text-paper leading-none">+116<span class="text-flame">%</span></div>
+              <div class="text-paper/60 text-xs mt-2 leading-tight">zasięg poza<br>obserwującymi</div>
+            </div>
+          </div>
+          <p class="sec-num text-paper/40 mt-4">Dane: Instagram Insights, do 2024.</p>
+        </div>
+      </article>
+
+      <!-- Case 2: Akademia z Dolnego Śląska -->
+      <article class="reveal flex flex-col border border-paper/30 hover:border-flame transition-colors">
+        <div class="p-8 md:p-10 flex-1 flex flex-col">
+          <div class="flex items-center justify-between mb-6 sec-num text-paper/60">
+            <span>02 / Klient</span>
+            <span>Piłka nożna · od III '26</span>
+          </div>
+          <h3 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tightest">Akademia Piłkarska<br>z Dolnego Śląska</h3>
+          <p class="text-paper/80 mb-8 leading-relaxed">
+            Pełna obsługa SSM: 4 posty + 4 reels miesięcznie + moderacja FB/IG. Po pierwszym miesiącu współpracy — nowy rekord profilu i 5–10× więcej wyświetleń na rolkę vs. poprzedni okres.
+          </p>
+
+          <!-- Hero number -->
+          <div class="border-t hair-dark pt-6 mb-6 flex items-baseline gap-4">
+            <span class="text-6xl md:text-7xl font-extrabold nums text-flame leading-none nums">22,6k</span>
+            <span class="text-paper/70 text-sm leading-tight">wyświetleń rolek<br>w 1. miesiącu (FB+IG)</span>
+          </div>
+
+          <!-- Secondary stats grid -->
+          <div class="mt-auto grid grid-cols-3 gap-3 border-t hair-dark pt-6">
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold nums text-paper leading-none">8 520</div>
+              <div class="text-paper/60 text-xs mt-2 leading-tight">rekord profilu<br>(rolka)</div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold nums text-paper leading-none">5–10<span class="text-flame">×</span></div>
+              <div class="text-paper/60 text-xs mt-2 leading-tight">wyświetleń vs.<br>okres przed</div>
+            </div>
+            <div>
+              <div class="text-2xl md:text-3xl font-extrabold nums text-paper leading-none">#1</div>
+              <div class="text-paper/60 text-xs mt-2 leading-tight">w rankingu<br>Most Viewed (IG)</div>
+            </div>
+          </div>
+          <p class="sec-num text-paper/40 mt-4">Dane: raport miesięczny, 24.03 – 19.04.2026.</p>
+        </div>
+      </article>
+
+    </div>
   </div>
-</div>
+</section>
 
-<div class="section">
-  <div class="label">Dodatkowa usługa naborowa</div>
-  <h2 class="section-title">Pakiet Nabór — Lead&nbsp;Ads<br>na sezon zapisowy.</h2>
-  <p>Social media buduje zaufanie i wizerunek <strong>cały rok</strong>. Ale kiedy zbliża się nabór, samo to nie wystarczy — potrzebujesz konkretnych zapisów w krótkim oknie czasowym.</p>
-  <div class="leadads-box">
-    <div class="leadads-eyebrow">🎯 Pakiet Nabór</div>
-    <h3>Kampania Lead Ads na 6 tygodni przed pikiem naborowym</h3>
-    <p>Strategia, konfiguracja Mety, 5 wariantów kreacji testowanych równolegle, codzienna optymalizacja, cotygodniowy raport i skrypt rozmowy z leadem — żeby trener wiedział, co powiedzieć rodzicowi, który zostawił numer.</p>
-    <p>To <strong>osobna usługa</strong>, nie dodatek do pakietu SSM. Pełen zakres, cennik i przykładowy zwrot z inwestycji omawiam na rozmowie — bo budżet i timing trzeba dopasować do Twojego klubu, nie do szablonu.</p>
+<!-- ============== JAK DZIAŁAMY ============== -->
+<section id="jak-dzialamy" class="border-b hair">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-20 md:py-32">
+
+    <div class="grid grid-cols-12 gap-6 md:gap-10 mb-14 md:mb-20">
+      <div class="col-span-12 md:col-span-7">
+        <div class="sec-num text-flame mb-4">/ 04 — Jak działamy</div>
+        <h2 class="display text-4xl md:text-6xl font-extrabold text-ink">Trzy kroki.<br>Bez teatru.</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t hair">
+
+      <div class="reveal py-10 md:py-14 md:pr-10 border-b md:border-b-0 md:border-r hair">
+        <div class="flex items-baseline gap-5 mb-6">
+          <span class="text-7xl md:text-8xl font-extrabold text-flame nums leading-none">01</span>
+          <span class="sec-num text-mute">15 min</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tightest text-ink mb-4">Bezpłatna konsultacja</h3>
+        <p class="text-ink/75 leading-relaxed">
+          Diagnozujemy, nie sprzedajemy. Patrzymy razem na profil klubu, mówimy co działa, co nie i czy w ogóle ma sens, żebyśmy razem pracowali.
+        </p>
+      </div>
+
+      <div class="reveal py-10 md:py-14 md:px-10 border-b md:border-b-0 md:border-r hair">
+        <div class="flex items-baseline gap-5 mb-6">
+          <span class="text-7xl md:text-8xl font-extrabold text-flame nums leading-none">02</span>
+          <span class="sec-num text-mute">2–3 dni</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tightest text-ink mb-4">Propozycja zakresu</h3>
+        <p class="text-ink/75 leading-relaxed">
+          Dopasowana do budżetu, celów i realnego rytmu klubu. Trzy pakiety, jasno wycenione. Bez ukrytych pozycji, bez „skontaktujemy się".
+        </p>
+      </div>
+
+      <div class="reveal py-10 md:py-14 md:pl-10">
+        <div class="flex items-baseline gap-5 mb-6">
+          <span class="text-7xl md:text-8xl font-extrabold text-flame nums leading-none">03</span>
+          <span class="sec-num text-mute">Start &lt; 14 dni</span>
+        </div>
+        <h3 class="text-2xl md:text-3xl font-extrabold tracking-tightest text-ink mb-4">Start współpracy</h3>
+        <p class="text-ink/75 leading-relaxed">
+          Przejmujemy social media.<br>
+          Klub skupia się na sporcie, my na tym, żeby było go widać tam, gdzie patrzą rodzice, zawodnicy i nowi członkowie.
+        </p>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>
 
-<div class="section">
-  <div class="label">Proces współpracy</div>
-  <h2 class="section-title">Żadnego chaosu. Żadnych niespodzianek.</h2>
-  <div style="margin-top:24px">
-    <div class="step"><div class="step-num">01</div><div><h4>Bezpłatna rozmowa (15–20 min)</h4><p>Opowiadasz mi o klubie, celach i grupie docelowej. Bez zobowiązań.</p></div></div>
-    <div class="step"><div class="step-num">02</div><div><h4>Analiza i propozycja strategii</h4><p>Przygotowuję spersonalizowany plan dla Twojego klubu — nie kopiuję szablonów.</p></div></div>
-    <div class="step"><div class="step-num">03</div><div><h4>Umowa i onboarding</h4><p>Krótka umowa, dostępy do profili, ustalamy sposób dostarczania materiałów.</p></div></div>
-    <div class="step"><div class="step-num">04</div><div><h4>Ty nagrywasz, ja publikuję</h4><p>Wrzucasz surowe nagrania na Google Drive. Ja montuję, piszę teksty, publikuję. 15 minut Twojego czasu tygodniowo.</p></div></div>
-    <div class="step"><div class="step-num">05</div><div><h4>Akceptacja i start</h4><p>Przed publikacją wysyłam gotowy plan. Zielone światło i ruszamy. Ty wracasz na boisko.</p></div></div>
+<!-- ============== O MNIE ============== -->
+<section id="o-mnie" class="bg-bone border-b hair">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-20 md:py-32">
+
+    <div class="grid grid-cols-12 gap-6 md:gap-10 items-start">
+
+      <div class="col-span-12 md:col-span-5 lg:col-span-5">
+        <img src="images/kamil-mistrz-polski-commercecon-2023.png"
+             alt="Kamil Kwieciński z pucharem Mistrza Polski siatkówki kobiet 2022/23, LKS Commercecon Łódź"
+             class="w-full aspect-[4/5] object-cover object-top"
+             loading="lazy">
+      </div>
+
+      <div class="col-span-12 md:col-span-7 lg:col-span-6 lg:col-start-7">
+        <div class="sec-num text-flame mb-4">/ 05 — O mnie</div>
+        <h2 class="display text-4xl md:text-6xl font-extrabold text-ink mb-10">Kamil<br>Kwieciński.</h2>
+
+        <div class="space-y-6 text-lg md:text-xl text-ink/85 leading-relaxed">
+          <p>
+            Byłem statystykiem i asystentem w sztabie szkoleniowym <strong class="text-ink">LKS Commercecon Łódź</strong> — klubu, który w sezonie 2022/23 zdobył <strong class="text-ink">Mistrzostwo Polski siatkówki kobiet</strong>. Odpowiadałem za statystyki meczowe i analizę przeciwnika — narzędzia, którymi top kluby dziś wygrywają finały.
+          </p>
+          <p>
+            Dziś pracuję w międzynarodowym środowisku siatkówki i prowadzę <strong class="text-ink">Lubań Volley</strong> — własny klub, na którym testuję wszystko, co potem oddaję klientom 2xKPro.
+          </p>
+          <p>
+            <strong class="text-ink">2xKPro</strong> zbudowałem, bo zobaczyłem, ile dobrych klubów w Polsce ma fatalne profile. Wiem, co odróżnia klub z mistrzostwami od klubu, który stoi w miejscu — i część tego to social media, nawet jeśli nikt o tym nie mówi głośno.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 pt-10 border-t hair">
+          <div>
+            <div class="sec-num text-mute mb-2">Mistrzostwo Polski</div>
+            <div class="font-semibold text-ink">LKS Commercecon Łódź</div>
+            <div class="text-sm text-ink/60 mt-1">Siatkówka kobiet · 2022/23</div>
+          </div>
+          <div>
+            <div class="sec-num text-mute mb-2">Własny klub</div>
+            <div class="font-semibold text-ink">Lubań Volley</div>
+            <div class="text-sm text-ink/60 mt-1">Trener · prowadzenie profilu</div>
+          </div>
+          <div>
+            <div class="sec-num text-mute mb-2">Doświadczenie</div>
+            <div class="font-semibold text-ink">Siatkówka międzynarodowa</div>
+            <div class="text-sm text-ink/60 mt-1">Poziom ekstraklasowy</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
+</section>
 
-<div class="section">
-  <div class="label">Dlaczego ja?</div>
-  <h2 class="section-title">Nie robię marketingu dla pizzerii.</h2>
-  <div class="why-text" style="margin-top:16px">
-    <p>Skupiam się na sporcie i wynikach, które można zmierzyć. Rozumiem kontekst bez długich wyjaśnień.</p><br>
-    <p>Prowadzę własną akademię siatkówki — <strong>70+ zawodników, dwie grupy treningowe</strong>. Wiem co to nabór, wiem jak boli brak widoczności, wiem ile czasu zabiera prowadzenie zajęć i social mediów naraz.</p><br>
-    <p>Jedna rolka, którą zrobiłem dla mojej akademii, <strong>zdobyła 83 000 wyświetleń organicznie</strong> — na profilu, który wcześniej miał kilkaset. Ten sam mechanizm treści wideo działa dokładnie tak samo w piłce nożnej.</p><br>
-    <p>Wiem, że liczą się telefony z pytaniem o zapisy — nie lajki. <strong>Dostarczam materiały na czas. Bez improwizacji w ostatniej chwili.</strong></p>
+<!-- ============== FAQ ============== -->
+<section id="faq" class="border-b hair">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-20 md:py-32">
+
+    <div class="grid grid-cols-12 gap-6 md:gap-10 mb-12 md:mb-16">
+      <div class="col-span-12 md:col-span-5">
+        <div class="sec-num text-flame mb-4">/ 06 — FAQ</div>
+        <h2 class="display text-4xl md:text-6xl font-extrabold text-ink">Pytania,<br>które padają.</h2>
+      </div>
+      <div class="col-span-12 md:col-span-6 md:col-start-7 flex items-end">
+        <p class="text-lg text-ink/70">Pięć rzeczy, o które klubowi managerowie pytają najczęściej — odpowiedzi krótkie i szczere.</p>
+      </div>
+    </div>
+
+    <div class="border-t hair">
+
+      <details class="border-b hair group">
+        <summary class="flex items-start justify-between gap-6 py-7 md:py-9 text-ink">
+          <div class="flex items-baseline gap-5 md:gap-8">
+            <span class="sec-num text-flame">01</span>
+            <span class="text-xl md:text-3xl font-extrabold tracking-tightest group-hover:text-flame transition-colors">Ile to kosztuje?</span>
+          </div>
+          <span class="faq-plus mt-3"></span>
+        </summary>
+        <div class="faq-body"><div>
+          <div class="pb-8 md:pb-10 pl-0 md:pl-[6.5rem] text-lg text-ink/80 leading-relaxed max-w-3xl">
+            <p>Konkretny zakres i wycenę ustalamy na konsultacji — zależy od rytmu klubu, ilości materiału źródłowego i tego, czy w grze są kampanie płatne. Rozliczenie miesiąc do miesiąca, faktura VAT.</p>
+          </div>
+        </div></div>
+      </details>
+
+      <details class="border-b hair group">
+        <summary class="flex items-start justify-between gap-6 py-7 md:py-9 text-ink">
+          <div class="flex items-baseline gap-5 md:gap-8">
+            <span class="sec-num text-flame">02</span>
+            <span class="text-xl md:text-3xl font-extrabold tracking-tightest group-hover:text-flame transition-colors">Co dokładnie robicie?</span>
+          </div>
+          <span class="faq-plus mt-3"></span>
+        </summary>
+        <div class="faq-body"><div>
+          <div class="pb-8 md:pb-10 pl-0 md:pl-[6.5rem] text-lg text-ink/80 leading-relaxed max-w-3xl">
+            <p>Posty i reels (Instagram + Facebook), moderacja wiadomości i komentarzy, prowadzenie kalendarza publikacji. Opcjonalnie: kampanie <strong>Facebook Lead Ads</strong> na nabory i nowych członków, oraz strategia profilu na 90 dni. Nie robimy: TikToka jako głównego kanału, YouTube long-form, Google Ads.</p>
+          </div>
+        </div></div>
+      </details>
+
+      <details class="border-b hair group">
+        <summary class="flex items-start justify-between gap-6 py-7 md:py-9 text-ink">
+          <div class="flex items-baseline gap-5 md:gap-8">
+            <span class="sec-num text-flame">03</span>
+            <span class="text-xl md:text-3xl font-extrabold tracking-tightest group-hover:text-flame transition-colors">Czy musimy nagrywać materiały sami?</span>
+          </div>
+          <span class="faq-plus mt-3"></span>
+        </summary>
+        <div class="faq-body"><div>
+          <div class="pb-8 md:pb-10 pl-0 md:pl-[6.5rem] text-lg text-ink/80 leading-relaxed max-w-3xl">
+            <p>Tak — materiał źródłowy (treningi, mecze, kadry z hali) nagrywa <strong>trener lub prezes</strong>, telefonem, w trakcie zwykłego dnia klubu. Dajemy konkretne wskazówki, listę ujęć i feedback po każdym dostarczonym materiale. Cały montaż, grafiki, posty i moderację robimy my.</p>
+          </div>
+        </div></div>
+      </details>
+
+      <details class="border-b hair group">
+        <summary class="flex items-start justify-between gap-6 py-7 md:py-9 text-ink">
+          <div class="flex items-baseline gap-5 md:gap-8">
+            <span class="sec-num text-flame">04</span>
+            <span class="text-xl md:text-3xl font-extrabold tracking-tightest group-hover:text-flame transition-colors">Jak długo trwa umowa?</span>
+          </div>
+          <span class="faq-plus mt-3"></span>
+        </summary>
+        <div class="faq-body"><div>
+          <div class="pb-8 md:pb-10 pl-0 md:pl-[6.5rem] text-lg text-ink/80 leading-relaxed max-w-3xl">
+            <p><strong>Miesięcznie</strong>, bez długich zobowiązań. Wypowiedzenie z miesiącem wyprzedzenia. Wierzę, że trzymanie klienta umową to słaby model — wolę, żeby chciało się wam z nami zostać.</p>
+          </div>
+        </div></div>
+      </details>
+
+      <details class="group">
+        <summary class="flex items-start justify-between gap-6 py-7 md:py-9 text-ink">
+          <div class="flex items-baseline gap-5 md:gap-8">
+            <span class="sec-num text-flame">05</span>
+            <span class="text-xl md:text-3xl font-extrabold tracking-tightest group-hover:text-flame transition-colors">Czemu mam zaufać akurat wam?</span>
+          </div>
+          <span class="faq-plus mt-3"></span>
+        </summary>
+        <div class="faq-body"><div>
+          <div class="pb-8 md:pb-10 pl-0 md:pl-[6.5rem] text-lg text-ink/80 leading-relaxed max-w-3xl">
+            <p>Nie musisz. Zacznij od bezpłatnej konsultacji — dostaniesz konkretną diagnozę profilu, nawet jeśli nie podejmiemy współpracy. Co do dowodów: <a href="#case-studies" class="ulink hover:text-flame">case studies</a> wyżej, własny klub (Lubań Volley, 91k wyśw.), realny klient od marca '26. Mało, ale prawdziwie.</p>
+          </div>
+        </div></div>
+      </details>
+
+    </div>
   </div>
-  <div class="contact-box">📩 Pytania? Napisz śmiało — <a href="mailto:contact@2xkpro.com">contact@2xkpro.com</a> · <a href="tel:+48882037166">882-037-166</a></div>
-</div>
+</section>
 
-</div>
+<!-- ============== FINAL CTA ============== -->
+<section class="bg-ink text-paper">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-24 md:py-40">
 
-<div class="cta-final">
-  <h2>Gotowy na klub,<br>o którym mówią w regionie?</h2>
-  <p>Nie traćmy czasu na wymianę maili. Porozmawiajmy 15 minut —<br>ocenię, czy i jak mogę pomóc. Bez zobowiązań.</p>
-  <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min?user=kamil-kwiecinski-ketbpy&overlayCalendar=true" class="hero-cta">Umów bezpłatną rozmowę</a>
-  <div class="cta-contact"><a href="mailto:contact@2xkpro.com">contact@2xkpro.com</a> · <a href="tel:+48882037166">882-037-166</a></div>
-</div>
+    <div class="grid grid-cols-12 gap-6 md:gap-10 items-end">
+      <div class="col-span-12 lg:col-span-8">
+        <div class="sec-num text-flame mb-6">/ 07 — Zaczynamy</div>
+        <h2 class="display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold">
+          15 minut.<br>
+          Diagnoza profilu.<br>
+          <span class="italic font-medium text-flame">Bez zobowiązań.</span>
+        </h2>
+      </div>
+      <div class="col-span-12 lg:col-span-4">
+        <p class="text-lg md:text-xl text-paper/75 leading-relaxed mb-10 lg:max-w-xs">
+          Wybierz termin w kalendarzu Cal.com. Konkretny audyt twojego profilu, na żywo, ze mną.
+        </p>
+      </div>
+    </div>
 
-<footer>2xK · Kamil Kwieciński · <a href="mailto:contact@2xkpro.com">contact@2xkpro.com</a></footer>
+    <div class="mt-16 md:mt-20 grid grid-cols-12 gap-6 md:gap-10 items-center border-t hair-dark pt-10">
+      <div class="col-span-12 md:col-span-7">
+        <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min" target="_blank" rel="noopener" class="btn-primary text-base md:text-lg">
+          Umów bezpłatną konsultację (15 min)
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 16L16 4M16 4H7M16 4V13" stroke="currentColor" stroke-width="2"/></svg>
+        </a>
+      </div>
+      <div class="col-span-12 md:col-span-5 md:text-right space-y-1">
+        <div class="sec-num text-paper/60">lub napisz</div>
+        <a href="mailto:contact@2xkpro.com" class="text-2xl md:text-3xl font-extrabold tracking-tightest hover:text-flame transition">contact@2xkpro.com</a>
+        <div class="sec-num text-paper/50">odpowiadam w 24h w dni robocze</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============== FOOTER ============== -->
+<footer class="bg-ink text-paper border-t hair-dark">
+  <div class="max-w-[1400px] mx-auto px-5 md:px-10 py-10 md:py-12 grid grid-cols-12 gap-6 md:gap-10 items-baseline">
+    <div class="col-span-12 md:col-span-4">
+      <div class="text-2xl font-extrabold tracking-tightest">2xK<span class="text-flame">Pro</span></div>
+      <div class="sec-num text-paper/50 mt-1">Social media · sport · 2026</div>
+    </div>
+    <div class="col-span-6 md:col-span-3 text-sm space-y-2 text-paper/75">
+      <div class="sec-num text-paper/50 mb-2">Strona</div>
+      <a href="#dla-kogo" class="block hover:text-flame">Dla kogo</a>
+      <a href="#case-studies" class="block hover:text-flame">Case studies</a>
+      <a href="#jak-dzialamy" class="block hover:text-flame">Jak działamy</a>
+      <a href="#faq" class="block hover:text-flame">FAQ</a>
+    </div>
+    <div class="col-span-6 md:col-span-3 text-sm space-y-2 text-paper/75">
+      <div class="sec-num text-paper/50 mb-2">Kontakt</div>
+      <a href="mailto:contact@2xkpro.com" class="block hover:text-flame">contact@2xkpro.com</a>
+      <a href="https://cal.com/kamil-kwiecinski-ketbpy/bezp%C5%82atna-konsultacja-15-min" target="_blank" rel="noopener" class="block hover:text-flame">cal.com / 15 min</a>
+    </div>
+    <div class="col-span-12 md:col-span-2 sec-num text-paper/50 md:text-right">
+      © 2026 2xKPro
+    </div>
+  </div>
+</footer>
+
+<script>
+  // reveal-on-scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // close other FAQ details on open (single-expand behavior)
+  const allDetails = document.querySelectorAll('#faq details');
+  allDetails.forEach(d => d.addEventListener('toggle', () => {
+    if (d.open) allDetails.forEach(o => { if (o !== d) o.open = false; });
+  }));
+</script>
 
 </body>
 </html>
